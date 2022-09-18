@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{{ caminho }}
+<div class="container">
+    <h1 align="center" class="mt-3">Consultar Pastas</h1>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form method="POST" action="{{ url_for('pasta_instrumento_admin') }}" class="rounded mt-3 p-2">
+                {{ form.csrf_token }}
+                {{ form.pasta_instrumento.label }}
+                {{ form.pasta_instrumento }}
+                {{ form.botao_submit_pesquisa(class='btn btn-primary') }}
+
+            </form>
+        </div>
+    </div>
+
+
+
+    </div>
+</div>
+
+{% block form_view %}
+
+{% endblock %}
+{% endblock %}
+
+

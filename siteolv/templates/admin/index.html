@@ -1,0 +1,17 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+{{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+
+
+{% block body %}
+
+{% if current_user.is_authenticated %}
+<h1>PAINEL DE ADMINISTRADOR</h1>
+<div class="container">
+         <img class="d-inline-block align-center" src="{{ url_for('static', filename='logo.png') }}" width="300">
+</div>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container">
+
+            <h1 align="center" class="mt-3">Músicos da Orquestra</h1>
+
+        {% for usuario in lista_usuarios %}
+        <div class="container mt-3 d-flex justify-content-center mb-3">
+            <div class="card p-3">
+                <div class="card-doby">
+
+                    <div class="d-flex align-items-center">
+
+                                <div class="image mt-2 pe-2">
+                                    <img src="{{ usuario.foto_perfil }}" class="rounded" width="130" >
+                                </div>
+
+                        <div class="ml-3 w-100">
+
+                           <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+
+                                <div class="d-flex flex-column align-items-center">
+
+                                    <span class="rating">Nome/Apelido</span>
+                                    <span class="number3">{{ usuario.nickname.capitalize() }}</span>
+
+                                </div>
+
+                                <div class="d-flex flex-column align-items-center">
+
+                                    <span class="articles">Instrumento</span>
+                                    <span class="number1">{{ usuario.instru_ativo.nome_instrumento }}</span>
+
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+
+                                    <span class="articles" >Na Orquestra desde</span>
+                                    <span class="number1">{{ usuario.anodeentrada }}</span>
+
+                                 </div>
+
+                           </div>
+
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+       </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

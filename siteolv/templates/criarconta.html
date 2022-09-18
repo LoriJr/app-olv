@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="mt-3" align="center">Orquestra Lírio dos Vales</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <form method="POST" action="" class="rounded border mt-3 mb-3 p-2">
+                    {{ form_criarconta.csrf_token }}
+                    <legend>Criar Conta</legend>
+                    <fieldset>
+                        <div class="form-group">
+
+                            {{ form_criarconta.username.label(class='form-control-label') }}
+
+                           {% if form_criarconta.username.errors %}
+                                {{ form_criarconta.username(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for erro in form_criarconta.username.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form_criarconta.username(class='form-control') }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+
+                            {{ form_criarconta.nickname.label(class='form-control-label') }}
+                            
+                            {% if form_criarconta.nickname.errors %}
+                                {{ form_criarconta.nickname(class='form-control is-invalid') }}
+
+                             <div class="invalid-feedback">
+                                {% for erro in form_criarconta.nickname.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form_criarconta.nickname(class='form-control') }}
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {{ form_criarconta.email.label(class='form-control-label') }}
+
+                            {% if form_criarconta.email.errors %}
+                                {{ form_criarconta.email(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for erro in form_criarconta.email.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form_criarconta.email(class='form-control') }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-2 mb-1">
+
+                            {{ form_criarconta.instrumento.label(class='form-control-label') }} {{ form_criarconta.instrumento }}
+
+                        </div>
+                        <div class="form-group mt-2 mb-1">
+
+                            {{ form_criarconta.anodeentrada.label(class='form-control-label') }} {{ form_criarconta.anodeentrada }}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_criarconta.senha.label(class='form-control-label') }}
+                            
+                            {% if form_criarconta.senha.errors %}
+                                {{ form_criarconta.senha(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for erro in form_criarconta.senha.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form_criarconta.senha(class='form-control') }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_criarconta.confirmacao_senha.label(class='form-control-label') }}
+                            
+                            {% if form_criarconta.confirmacao_senha.errors %}
+                                {{ form_criarconta.confirmacao_senha(class='form-control is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for erro in form_criarconta.confirmacao_senha.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form_criarconta.confirmacao_senha(class='form-control') }}
+                            {% endif %}
+                        </div>
+
+                    </fieldset>
+                    <div class="form-group mt-2">
+                        {{ form_criarconta.botao_submit_criarconta(class='btn btn-primary') }}
+                    </div>
+                </form>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}

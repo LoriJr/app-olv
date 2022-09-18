@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container mt-5 d-flex justify-content-center">
+
+        <div class="card p-3">
+
+            <div class="d-flex align-items-center">
+
+                <div class="image pe-2">
+            <img src="{{ current_user.foto_perfil }}" class="rounded" width="150" >
+            </div>
+
+            <div class="ml-3 w-100">
+
+               <h4 class="mb-0 mt-0">{{ current_user.username }}</h4>
+               <span>{{ current_user.email }}</span>
+
+               <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+
+                <div class="d-flex flex-column align-items-center">
+
+                    <span class="articles">Instrumento</span>
+                    <span class="number1">{{ current_user.instru_ativo.nome_instrumento }}</span>
+
+                </div>
+
+                    <div class="d-flex flex-column align-items-center">
+
+                        <span class="rating">Início na Orquestra</span>
+                        <span class="number3">{{ current_user.anodeentrada }}</span>
+
+                    </div>
+
+               </div>
+
+
+               <div class="button mt-2 d-flex flex-row align-items-center">
+                   <a class="w-100" href="{{ url_for('perfil_editar') }}"><button disabled class="btn btn-sm btn-outline-primary w-100">Editar Perfil</button></a>
+               </div>
+
+
+            </div>
+
+
+            </div>
+
+        </div>
+</div>
+{% block form_editar_perfil %}
+
+
+
+{% endblock %}
+{% endblock %}

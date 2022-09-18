@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<div class="container">
+    <h1 align="center" class="mt-3">Incluir Partituras</h1>
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <form method="POST" action="" class="rounded p-3 mt-3 mb-5 width=500" enctype="multipart/form-data">
+                {{ formupload.csrf_token }}
+                <div class="form-group">
+                    {{ formupload.pesquisa_instrumento.label }}<br>
+                    {{ formupload.pesquisa_instrumento }}<hr>
+                    {{ formupload.arquivo }}<br>
+                    {% if formupload.arquivo.errors %}
+                    {% for erro in formupload.arquivo.errors %}
+                    <spam class="text-danger">{{ erro }}</spam><br>
+                    {% endfor %}
+                    {% endif %}
+                    {{ formupload.botao_submit(class='btn btn-primary mt-2') }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
