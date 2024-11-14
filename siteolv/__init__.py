@@ -8,6 +8,7 @@ import boto3
 from siteolv.config_s3 import S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 import cloudinary
 import os
+import psycopg2
 
 
 app = Flask(__name__)
@@ -18,10 +19,10 @@ s3 = session.resource('s3')
 app.config['SECRET_KEY'] = '814a54e45292ee641c68e96e1afcab76'
 
 if os.getenv('DATABASE_URL'):
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:xjdrJuSvgRXsrdQByTvcXLOFvJtbJeae@postgres.railway.internal:5432/railway'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db_olv.db'
-    
+
 app.config['FLASK_ADMIN_SWATCH'] = "cerulean"
 
 database = SQLAlchemy(app)
